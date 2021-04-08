@@ -6,14 +6,17 @@
 #    By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 14:16:19 by lbertran          #+#    #+#              #
-#    Updated: 2021/04/07 14:17:33 by lbertran         ###   ########lyon.fr    #
+#    Updated: 2021/04/08 13:47:18 by lbertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        =       libasm.a
 SRCS        =       ft_strlen.s \
 					ft_strcmp.s \
-					ft_strcpy.s
+					ft_strcpy.s \
+					ft_write.s \
+					ft_read.s \
+					ft_strdup.s
 OBJS        =       ${SRCS:.s=.o}
 CFLAGS		=		-Wall -Wextra -Werror
 
@@ -28,11 +31,8 @@ all: $(NAME)
 clean:
 	rm -f $(OBJS)
 
-bonus:	$(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
-test: all bonus
-	@gcc $(CFLAGS) -I./libasm.h -I./libasm_bonus.h libasm.a main.c -o test
+test: all
+	@gcc $(CFLAGS) -I. libasm.a main.c -o test
 	@./test
 
 fclean: clean

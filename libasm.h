@@ -6,16 +6,26 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 13:05:56 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/07 14:21:02 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 13:47:10 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBASM_H
 # define LIBASM_H
 
-int		ft_strlen(char *str);
+# include <stddef.h>
+# include <sys/types.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <string.h>
+# include <stdlib.h>
+
+size_t	ft_strlen(char *str);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strcpy(char *dest, char *src);
+ssize_t	ft_write(int fd, const void *buf, size_t nbyte);
+ssize_t	ft_read(int fd, const void *buf, size_t nbyte);
+char	*ft_strdup(const char *s1);
 
 /*
 ** Text colors
