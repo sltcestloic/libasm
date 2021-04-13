@@ -6,11 +6,24 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 13:05:19 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/09 10:37:01 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 14:42:19 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
+#include "libasm_bonus.h"
+
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*ret;
+
+	ret = malloc(sizeof(t_list));
+	if (!ret)
+		return (NULL);
+	ret->data = content;
+	ret->next = NULL;
+	return (ret);
+}
 
 int	main(void)
 {
@@ -93,7 +106,11 @@ int	main(void)
 	char *dup2 = ft_strdup(original2);
 	printf("%sOriginal string: %s%s\n", YELLOW, RESET, original2);
 	printf("%sDuplicated string: %s%s\n", YELLOW, RESET, dup2);
-	printf("%s-----------------------------------%s\n\n", BBLACK, RESET);
+	printf("%s-----------------------------------%s\n", BBLACK, RESET);
 	free(dup2);
+
+	int content = 5;
+	t_list *list = ft_lstnew(&content);
+	printf("%d\n", ft_list_size(list));
 	return 0;
 }
