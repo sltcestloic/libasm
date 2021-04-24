@@ -6,7 +6,7 @@
 /*   By: lbertran <lbertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 13:05:19 by lbertran          #+#    #+#             */
-/*   Updated: 2021/04/09 14:42:19 by lbertran         ###   ########lyon.fr   */
+/*   Updated: 2021/04/24 16:39:02 by lbertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,18 @@ int	main(void)
 	printf("%s-----------------------------------%s\n\n", BMAGENTA, RESET);
 
 	printf("%s-------------%sread test%s-------------%s\n", BHBLUE, BWHITE, BHBLUE, RESET);
-	printf("%sTo read: %s300 bytes from \"ft_strlen.s\"\n", YELLOW, RESET);
+	printf("%sTo read: %s50 bytes from \"ft_strlen.s\"\n", YELLOW, RESET);
 	printf("%sResult:%s\n", YELLOW, RESET);
 	int fd = open("ft_strlen.s", O_RDONLY);
-	char line[300];
-	int ret = ft_read(fd, line, 300);
+	char line[50];
+	int ret = ft_read(fd, line, 50);
 	line[ret] = 0;
 	printf("%s\n", line);
-	printf("\n%sTo read: %s300 bytes from \"ft_strcmp.s\"\n", YELLOW, RESET);
+	printf("\n%sTo read: %s50 bytes from \"ft_strcmp.s\"\n", YELLOW, RESET);
 	printf("%sResult:%s\n", YELLOW, RESET);
  	fd = open("ft_strcmp.s", O_RDONLY);
-	char line2[300];
-	ret = ft_read(fd, line2, 300);
+	char line2[50];
+	ret = ft_read(fd, line2, 50);
 	line2[ret] = 0;
 	printf("%s\n", line2);
 	printf("%s-----------------------------------%s\n\n", BHBLUE, RESET);
@@ -109,8 +109,11 @@ int	main(void)
 	printf("%s-----------------------------------%s\n", BBLACK, RESET);
 	free(dup2);
 
+	printf("%s------------%slstsize test%s-----------%s\n", BHCYAN, BWHITE, BHCYAN, RESET);
 	int content = 5;
 	t_list *list = ft_lstnew(&content);
-	printf("%d\n", ft_list_size(list));
+	printf("%sResult: %s%d\n", YELLOW, RESET, ft_list_size(list));
+	printf("%sExpected result: %s%d\n", YELLOW, RESET, 1);
+	printf("%s-----------------------------------%s\n\n", BHCYAN, RESET);
 	return 0;
 }
