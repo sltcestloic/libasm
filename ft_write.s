@@ -9,5 +9,9 @@ _ft_write:
 	ret
 
 error_exit:
+	push rax
+	call ___error
+	pop rdi
+	mov [rax], rdi
 	mov	rax, -1
 	ret
